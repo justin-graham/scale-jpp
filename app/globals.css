@@ -150,6 +150,19 @@
   }
 }
 
+@keyframes diagramNodePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.35);
+  }
+}
+
+.diagram-active {
+  animation: diagramNodePulse 1.4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

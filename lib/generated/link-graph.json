@@ -188,6 +188,22 @@
       "start-here"
     ]
   },
+  "agentic-jpp-overview": {
+    "outgoing": [],
+    "incoming": []
+  },
+  "agentic-mission-analysis": {
+    "outgoing": [],
+    "incoming": []
+  },
+  "agentic-coa-development": {
+    "outgoing": [],
+    "incoming": []
+  },
+  "agentic-coa-comparison": {
+    "outgoing": [],
+    "incoming": []
+  },
   "mini-jpp-capstone": {
     "outgoing": [
       "jpp-seven-steps"

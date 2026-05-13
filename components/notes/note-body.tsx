@@ -10,6 +10,7 @@ import { TraceViewer } from "@/components/interactive/trace-viewer";
 import { TradeSpace } from "@/components/interactive/trade-space";
 import { AcronymTooltip } from "@/components/mdx/acronym-tooltip";
 import { NoteLink } from "@/components/mdx/note-link";
+import { PredictThenReveal } from "@/components/mdx/predict-then-reveal";
 import { SourceCallout } from "@/components/mdx/source-callout";
 import { SourceQuote } from "@/components/mdx/source-quote";
 
@@ -203,17 +204,40 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            Mission analysis is where the staff turns direction into understanding:
-            specified, implied, and essential tasks; mission statement; COGs; limitations;
-            risk; initial <AcronymTooltip term="CCIR" />; and evaluation criteria. JP 5-0
-            says{" "}
+            Mission analysis is where the staff turns direction into understanding.
+            Outputs: specified, implied, and essential tasks; restated mission; COGs;
+            limitations (constraints and restraints); risk; initial{" "}
+            <AcronymTooltip term="CCIR" /> split between{" "}
+            <AcronymTooltip term="PIR" /> and <AcronymTooltip term="FFIR" />; and
+            evaluation criteria. JP 5-0 says{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-20 to III-30">
               The mission statement describes the mission in terms of the elements of who,
               what, when, where, and why.
             </SourceQuote>
           </p>
           <JppRing currentStep={2} lensOn={lensOn} openStep={openNote} />
+          <p>
+            The three task buckets are not synonyms. Specified tasks are directed in
+            higher-HQ orders. Implied tasks are not directed but are needed for the
+            specified tasks to succeed. Essential tasks are the small subset whose failure
+            means mission failure.
+          </p>
+          <PredictThenReveal
+            question='A higher-HQ order says "secure the port by D+3." Your staff also needs to coordinate with the partner coast guard. Which bucket is the coast-guard coordination?'
+            hint="One bucket is directed; the others are derived."
+          >
+            Implied. The order did not direct coast-guard coordination, but the mission
+            cannot succeed without it. The essential task is the broader mission outcome
+            the specified and implied tasks add up to.
+          </PredictThenReveal>
           <TaskSorter />
+          {lensOn ? (
+            <p>
+              Under an agent layer, candidate task classifications and draft CCIRs arrive
+              as proposals with source provenance. See{" "}
+              {link("agentic-mission-analysis", "agentic mission analysis")}.
+            </p>
+          ) : null}
           <p>
             Misclassifying tasks is not a vocabulary error. It changes what the staff
             builds next in {link("coa-development", "COA development")}.
@@ -232,17 +256,32 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
               subsets of options that identify specific military operations to attain the
               end state...
             </SourceQuote>
-            .
           </p>
           <JppRing currentStep={3} lensOn={lensOn} openStep={openNote} />
+          <p>
+            The discipline is genuine distinguishability. Five candidate COAs that vary
+            only on lift assets are one COA dressed up five times. Doctrine screens each
+            candidate against five criteria: suitable, feasible, acceptable,
+            distinguishable, and complete. A COA that fails any of these gets rebuilt or
+            dropped before it reaches wargaming.
+          </p>
+          <PredictThenReveal
+            question="Two candidate COAs differ only in which port they use. Are they distinguishable?"
+            hint="Distinguishability is about the approach, not the asset list."
+          >
+            No. Different ports with the same scheme of maneuver and sustainment concept
+            is one COA with two logistics options. A distinguishable second COA changes
+            the operational approach: a different sequence of effects, a different main
+            effort, or a different acceptance of risk.
+          </PredictThenReveal>
           {lensOn ? (
             <p>
-              Scale&apos;s public Thunderforge case study places AI agents and
-              physics-based modeling/simulation directly in this neighborhood:{" "}
+              This is the high-leverage zone for Thunderforge. The public case study
+              places AI agents and physics-based modeling/simulation directly here:{" "}
               <SourceQuote kind="scale" source="Scale white paper p. 25">
                 AI agents with automated, physics-based modeling and simulation tools
               </SourceQuote>
-              .
+              . See {link("agentic-coa-development", "agentic COA development")}.
             </p>
           ) : null}
           <ArchitectureDiagram />
@@ -253,21 +292,38 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
         <>
           <p>
             JP 5-0 describes wargaming as a disciplined, iterative process of action,
-            reaction, and counteraction. It should test each retained friendly COA against
-            most likely and most dangerous enemy COAs, while warning that{" "}
+            reaction, and counteraction. Each retained friendly COA is tested against
+            most-likely and most-dangerous enemy COAs. The output is not a winner; it is
+            a richer understanding of what breaks, where, and why.{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-53">
               Planners avoid becoming emotionally attached to a friendly COA...
             </SourceQuote>
           </p>
           <JppRing currentStep={4} lensOn={lensOn} openStep={openNote} />
           <p>
-            Scale calls this the planning multiverse: many permutations that expose likely
-            outcomes, vulnerabilities, and high-success options by{" "}
-            <SourceQuote kind="scale" source="Scale white paper p. 32">
-              running thousands or even hundreds of thousands of permutations
-            </SourceQuote>
-            .
+            Doctrine names three methods that trade coverage for cost. Box focuses on a
+            single critical event in time and space. Belt walks the COA through a sequence
+            of phases. Avenue-in-depth follows one route from start to objective. The
+            method picks itself once the staff names the question wargaming has to answer.
           </p>
+          <PredictThenReveal
+            question="The decisive question is whether COA B's main effort can survive enemy interdiction during the third week. Which wargame method fits?"
+            hint="Two dimensions matter: where in time, and how wide."
+          >
+            Box. The question is narrow in time (week three) and in space (the main
+            effort&apos;s axis). Belt would over-cover; avenue-in-depth would lose the time
+            focus.
+          </PredictThenReveal>
+          {lensOn ? (
+            <p>
+              Scale calls this the planning multiverse:{" "}
+              <SourceQuote kind="scale" source="Scale white paper p. 32">
+                running thousands or even hundreds of thousands of permutations
+              </SourceQuote>
+              . See {link("planning-multiverse", "the planning multiverse")} for the
+              agentic delta.
+            </p>
+          ) : null}
           <TraceViewer />
         </>
       );
@@ -284,7 +340,29 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             </SourceQuote>
           </p>
           <JppRing currentStep={5} lensOn={lensOn} openStep={openNote} />
+          <p>
+            The discipline is sequence. Evaluation criteria are defined and weighted
+            <em> before </em>
+            COAs are scored. Reversing the sequence lets the favored COA quietly select
+            its own grading rubric. The comparator below makes that failure mode visible:
+            pick a winner first, then move weights, and watch which criteria the
+            recommendation suddenly prefers.
+          </p>
+          <PredictThenReveal
+            question="A staff scored three COAs first, then debated weights. Is the recommendation defensible?"
+            hint="The objection is procedural, not arithmetic."
+          >
+            No. Tuning weights after a winner is visible turns the matrix into a
+            justification engine. The doctrinal correction is to commit criteria and
+            weights, then score, then report.
+          </PredictThenReveal>
           <CoaComparator />
+          {lensOn ? (
+            <p>
+              See {link("agentic-coa-comparison", "agentic COA comparison")} for how an
+              agent layer can make criteria-lock architectural rather than aspirational.
+            </p>
+          ) : null}
         </>
       );
     case "coa-approval":
@@ -358,15 +436,33 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             magic node. The point is finding what can be influenced to change the outcome.
           </p>
           <div className="my-6 grid gap-3 md:grid-cols-4">
-            {["COG", "Critical capability", "Critical requirement", "Critical vulnerability"].map(
-              (item) => (
-                <div key={item} className="rounded-md border bg-card p-3">
-                  <div className="font-mono text-xs text-muted-foreground">Analysis layer</div>
-                  <div className="mt-2 text-sm font-semibold">{item}</div>
-                </div>
-              ),
-            )}
+            {[
+              ["COG", "Source of strength", "Adversary integrated air defense"],
+              ["Critical capability", "What it does", "Detect and engage at range"],
+              ["Critical requirement", "What it needs", "Long-range radars + C2 links"],
+              ["Critical vulnerability", "Where it breaks", "Single forward radar node"],
+            ].map(([label, role, example]) => (
+              <div key={label} className="rounded-md border bg-card p-3">
+                <div className="font-mono text-xs text-muted-foreground">{role}</div>
+                <div className="mt-2 text-sm font-semibold">{label}</div>
+                <div className="mt-2 text-xs text-muted-foreground">{example}</div>
+              </div>
+            ))}
           </div>
+          <p>
+            Read the row left to right and the decomposition becomes operational: a COG
+            is too big to attack directly, so attack what it requires; among requirements,
+            attack what is exposed. The vulnerability is the target. The COG is the
+            reason.
+          </p>
+          <PredictThenReveal
+            question='If defeating a named COG would not force the adversary to change course or fail strategic objectives, what does that tell the staff?'
+            hint="JP 5-0 is explicit on the test."
+          >
+            The COG identification is invalid. JP 5-0 directs that the staff re-examine
+            the analysis. A correctly named COG, if defeated, breaks the adversary&apos;s
+            ability to accomplish strategic objectives.
+          </PredictThenReveal>
           <SourceCallout kind="doctrine">
             JP 5-0 says invalid COG identification should be reexamined if defeating it
             would not force the adversary to change course or fail strategic objectives.
@@ -401,19 +497,40 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
         <>
           <p>
             A line of operation is spatial: actions on decisive points lead toward an
-            objective. A line of effort is logical: tasks and missions connect by purpose
-            and cause-effect.
+            objective along a route in geography. A line of effort is logical: tasks and
+            missions connect by purpose and cause-effect, not necessarily by terrain. Most
+            plans use both.
           </p>
           <div className="my-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-md border bg-card p-4">
-              <h3 className="m-0 text-sm font-semibold">LOO</h3>
-              <p className="text-sm text-muted-foreground">Entry point -&gt; route -&gt; port -&gt; objective</p>
+              <h3 className="m-0 text-sm font-semibold"><AcronymTooltip term="LOO" /></h3>
+              <p className="mt-2 text-xs text-muted-foreground">Spatial path through decisive points</p>
+              <p className="mt-3 text-sm">
+                Entry point &rarr; route &rarr; port &rarr; lodgment &rarr; objective
+              </p>
             </div>
             <div className="rounded-md border bg-card p-4">
-              <h3 className="m-0 text-sm font-semibold">LOE</h3>
-              <p className="text-sm text-muted-foreground">Access -&gt; legitimacy -&gt; sustainment -&gt; objective</p>
+              <h3 className="m-0 text-sm font-semibold"><AcronymTooltip term="LOE" /></h3>
+              <p className="mt-2 text-xs text-muted-foreground">Logical link of effects toward an objective</p>
+              <p className="mt-3 text-sm">
+                Access &rarr; legitimacy &rarr; sustainment &rarr; partner capacity &rarr; objective
+              </p>
             </div>
           </div>
+          <p>
+            Decisive points are nodes on either line whose action shifts the plan
+            measurably toward the objective. The job in operational design is to choose
+            which decisive points sit on which line, and in what order.
+          </p>
+          <PredictThenReveal
+            question="A campaign aims to restore partner government legitimacy. Is that work better tracked on an LOO or an LOE?"
+            hint="Legitimacy is not a place."
+          >
+            LOE. Legitimacy is not a geographic node; it is an effect produced by linked
+            tasks (security, governance support, public communication). An LOO would
+            force the planner to invent a terrain metaphor for something that lives in
+            cause-effect logic.
+          </PredictThenReveal>
         </>
       );
     case "thunderforge-agentic-planning":
@@ -550,6 +667,149 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             The job is not to make a chatbot sound doctrinal. The job is to preserve
             structure, provenance, simulator evidence, traceability, and human decision
             authority.
+          </p>
+        </>
+      );
+    case "agentic-jpp-overview":
+      return (
+        <>
+          <p>
+            The public Scale framing concentrates agent leverage on COA development and
+            wargaming. JP 5-0 still owns the structure of the seven steps; Thunderforge
+            adds an agent layer that touches each step at different depth.{" "}
+            <SourceQuote kind="scale" source="Scale white paper p. 25">
+              higher level tasks
+            </SourceQuote>
+          </p>
+          <JppRing lensOn openStep={openNote} />
+          <div className="my-6 grid gap-2">
+            {[
+              ["Step 1 — Planning initiation", "Light", "Ingest and triage guidance, assumptions, source documents."],
+              ["Step 2 — Mission analysis", "Moderate", "Pre-classify tasks, draft CCIRs, propose candidate COGs."],
+              ["Step 3 — COA development", "Heavy", "Generate parallel COAs with simulator-backed evidence."],
+              ["Step 4 — COA analysis (wargaming)", "Heavy", "Run many permutations against likely and dangerous enemy COAs."],
+              ["Step 5 — COA comparison", "Moderate", "Score against locked criteria; surface evidence per criterion."],
+              ["Step 6 — COA approval", "Light (intentional)", "Commander decides; agents support, do not vote."],
+              ["Step 7 — Plan or order development", "Light today; living plans are future", "Render structured decisions into orders."],
+            ].map(([step, weight, note]) => (
+              <div key={step} className="rounded-md border bg-card p-3">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <div className="text-sm font-semibold">{step}</div>
+                  <div className="font-mono text-xs uppercase tracking-[0.14em] text-agentic">
+                    {weight}
+                  </div>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">{note}</p>
+              </div>
+            ))}
+          </div>
+          <SourceCallout kind="inference" title="Inference, not Scale claim">
+            The per-step weighting above is a teaching abstraction. Scale&apos;s white
+            paper is explicit about steps 3 and 4 being high-leverage; the rest is a
+            public-source bridge.
+          </SourceCallout>
+          <p>
+            Continue to {link("agentic-mission-analysis", "agentic mission analysis")},{" "}
+            {link("agentic-coa-development", "agentic COA development")},{" "}
+            {link("planning-multiverse", "the planning multiverse")} for step 4, and{" "}
+            {link("agentic-coa-comparison", "agentic COA comparison")}.
+          </p>
+        </>
+      );
+    case "agentic-mission-analysis":
+      return (
+        <>
+          <p>
+            Under an agent layer, the inputs to mission analysis (higher-HQ orders,
+            intelligence products, prior plans) get ingested, parsed, and pre-classified
+            before a human reads them. The output is not a finished mission statement.
+            It is a stack of proposals with provenance: specified vs. implied vs.
+            essential candidates, draft CCIRs linked to objectives, and candidate COGs
+            surfaced from {" "}
+            <AcronymTooltip term="PMESII-PT" /> signals.
+          </p>
+          <JppRing currentStep={2} lensOn openStep={openNote} />
+          <p>
+            The discipline is that proposals are not decisions. A task labeled
+            &ldquo;essential&rdquo; by an agent is a hypothesis; the staff confirms or
+            overrides. Every proposal carries the source it came from so the staff can
+            audit the chain back to the higher-HQ order.
+          </p>
+          <SourceCallout kind="inference" title="Inference, not Scale claim">
+            The mission-analysis layer is not described in the white paper. The bridge
+            here is built from JP 5-0 plus the public agent-architecture vocabulary.
+          </SourceCallout>
+          <TaskSorter />
+          <p>
+            Back to the doctrinal step: {link("mission-analysis", "mission analysis")}.
+          </p>
+        </>
+      );
+    case "agentic-coa-development":
+      return (
+        <>
+          <p>
+            COA development is the public Thunderforge use case. Scale describes{" "}
+            <SourceQuote kind="scale" source="Scale white paper p. 25">
+              AI agents with automated, physics-based modeling and simulation tools
+            </SourceQuote>
+            generating candidate COAs in parallel, each with simulator-validated
+            outcomes and confidence bands. The staff still owns the call on whether the
+            candidates span the option space.
+          </p>
+          <JppRing currentStep={3} lensOn openStep={openNote} />
+          <p>
+            The product shape: a small set of distinguishable candidates, each with
+            narrative, required capabilities, sustainment concept, risks, and a model
+            run summary. Distinguishability is checked the same way it always was, not
+            outsourced. An agent that returns five variants of a favored approach is
+            failing the spec, not the staff.
+          </p>
+          <PredictThenReveal
+            question="An agent layer returns ten candidate COAs. Is that better than three?"
+            hint="More options can be worse if they are not distinguishable."
+          >
+            Not by itself. JP 5-0 asks for distinguishable options, not many options. Ten
+            near-duplicates cost the staff more time than three genuinely different
+            approaches. The agent layer earns its keep by widening the option space,
+            not by inflating the count.
+          </PredictThenReveal>
+          <ArchitectureDiagram />
+          <p>
+            Back to the doctrinal step: {link("coa-development", "COA development")}.
+            Next: {link("planning-multiverse", "the planning multiverse")} for step 4.
+          </p>
+        </>
+      );
+    case "agentic-coa-comparison":
+      return (
+        <>
+          <p>
+            Agent-assisted comparison surfaces simulator evidence per criterion: this COA
+            wins on tempo and loses on sustainment; that COA is robust to enemy
+            interdiction but assumes partner access. The comparison still needs criteria
+            committed before scoring, and JP 5-0 still warns that{" "}
+            <SourceQuote kind="doctrine" source="JP 5-0 III-58">
+              COA comparison is subjective and should not be turned into a strictly
+              mathematical process.
+            </SourceQuote>
+          </p>
+          <JppRing currentStep={5} lensOn openStep={openNote} />
+          <p>
+            The architectural move is to make criteria-lock a property of the system. If
+            the staff can move weights after the ranking is visible, the bias surface is
+            still open. If the system records the criteria, freezes them, then computes,
+            the audit trail closes the loop. The slider behavior in the comparator below
+            is what the staff should <em>not</em> be able to do in production.
+          </p>
+          <CoaComparator />
+          <SourceCallout kind="inference" title="Inference, not Scale claim">
+            Criteria-lock as an architectural enforcement is a public-source teaching
+            inference. Scale&apos;s framing is about evidence and judgment; it does not
+            specify the workflow constraint.
+          </SourceCallout>
+          <p>
+            Back to the doctrinal step: {link("coa-comparison", "COA comparison")}.
           </p>
         </>
       );
