@@ -1,0 +1,162 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --font-heading: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-doctrine: var(--doctrine);
+  --color-agentic: var(--agentic);
+  --color-inference: var(--inference);
+  --color-scenario: var(--scenario);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background: oklch(0.985 0.006 255);
+  --foreground: oklch(0.18 0.025 255);
+  --card: oklch(0.995 0.003 255);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.27 0.08 255);
+  --primary-foreground: oklch(0.985 0.006 255);
+  --secondary: oklch(0.94 0.012 255);
+  --secondary-foreground: oklch(0.24 0.03 255);
+  --muted: oklch(0.93 0.009 255);
+  --muted-foreground: oklch(0.46 0.018 255);
+  --accent: oklch(0.91 0.034 85);
+  --accent-foreground: oklch(0.24 0.03 255);
+  --destructive: oklch(0.52 0.19 25);
+  --border: oklch(0.86 0.012 255);
+  --input: oklch(0.86 0.012 255);
+  --ring: oklch(0.68 0.11 70);
+  --doctrine: oklch(0.36 0.1 255);
+  --agentic: oklch(0.72 0.17 68);
+  --inference: oklch(0.52 0.1 310);
+  --scenario: oklch(0.48 0.08 180);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: oklch(0.145 0.025 255);
+  --foreground: oklch(0.93 0.012 255);
+  --card: oklch(0.185 0.026 255);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.18 0.026 255);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.79 0.13 75);
+  --primary-foreground: oklch(0.145 0.025 255);
+  --secondary: oklch(0.235 0.026 255);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.24 0.02 255);
+  --muted-foreground: oklch(0.72 0.018 255);
+  --accent: oklch(0.3 0.055 78);
+  --accent-foreground: oklch(0.92 0.08 78);
+  --destructive: oklch(0.64 0.19 25);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.75 0.14 75);
+  --doctrine: oklch(0.63 0.12 255);
+  --agentic: oklch(0.79 0.15 75);
+  --inference: oklch(0.68 0.1 310);
+  --scenario: oklch(0.68 0.09 180);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--agentic) 30%, transparent);
+  }
+}
+
+@layer components {
+  .note-column {
+    width: min(100%, calc(100vw - 2rem));
+  }
+
+  @media (min-width: 768px) {
+    .note-column {
+      width: clamp(24rem, 48vw, 44rem);
+    }
+  }
+
+  .atlas-prose {
+    @apply min-w-0 text-[1rem] leading-7 text-foreground;
+  }
+
+  .atlas-prose p {
+    @apply my-4;
+  }
+
+  .atlas-prose h2 {
+    @apply mt-8 mb-3 text-xl font-semibold tracking-normal;
+  }
+
+  .atlas-prose h3 {
+    @apply mt-6 mb-2 text-base font-semibold tracking-normal;
+  }
+
+  .atlas-prose ul {
+    @apply my-4 list-disc space-y-2 pl-5;
+  }
+
+  .atlas-prose strong {
+    @apply font-semibold;
+  }
+
+  .note-grid {
+    scrollbar-width: thin;
+  }
+
+  .responsive-tile-text {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
