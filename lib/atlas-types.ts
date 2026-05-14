@@ -2,8 +2,6 @@ import type { ComponentType } from "react";
 
 export type ClaimKind = "doctrine" | "scale" | "inference" | "scenario";
 
-export type Audience = "tpm" | "engineer" | "both";
-
 export type NoteCluster =
   | "foundations"
   | "jpp"
@@ -24,23 +22,18 @@ export type AtlasNote = {
   slug: string;
   cluster: NoteCluster;
   summary: string;
-  audience: Audience;
   jppStep?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   sourceClaims: SourceClaim[];
   agenticOverlay?: string;
   tags: string[];
-  trailOrder: {
-    tpm?: number;
-    engineer?: number;
-  };
+  trailOrder?: number;
 };
 
 export type Trail = {
-  id: "tpm" | "engineer";
+  id: string;
   title: string;
   description: string;
   startSlug: string;
-  audience: Audience;
 };
 
 export type NoteBodyProps = {

@@ -1,0 +1,11 @@
+name = "scale-jpp-tutor"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+DEEPSEEK_MODEL = "deepseek-chat"
+ALLOWED_ORIGINS = "https://justin-graham.github.io,http://localhost:3000"
+
+# Set DEEPSEEK_API_KEY via:
+#   wrangler secret put DEEPSEEK_API_KEY

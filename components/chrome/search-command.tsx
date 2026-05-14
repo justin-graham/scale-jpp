@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Search } from "lucide-react";
+import { MessageSquareText, Search } from "lucide-react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -12,10 +12,13 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { notes } from "@/lib/atlas-data";
+import { getTutorUrl } from "@/lib/tutor-client";
 
 export function SearchCommand() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const tutorConfigured = useMemo(() => Boolean(getTutorUrl()), []);
 
   useEffect(() => {
     const down = (event: KeyboardEvent) => {
@@ -38,8 +41,17 @@ export function SearchCommand() {
 
   function go(slug: string) {
     setOpen(false);
+    setQuery("");
     router.push(`/n/${slug}`);
   }
+
+  function askTutor(question: string) {
+    setOpen(false);
+    setQuery("");
+    router.push(`/?ask=${encodeURIComponent(question)}`);
+  }
+
+  const trimmed = query.trim();
 
   return (
     <>
@@ -55,9 +67,29 @@ export function SearchCommand() {
         </kbd>
       </button>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Search doctrine, agentic overlay, and glossary..." />
+        <CommandInput
+          value={query}
+          onValueChange={setQuery}
+          placeholder="Search notes or ask the tutor anything..."
+        />
         <CommandList>
           <CommandEmpty>No note found.</CommandEmpty>
+          {tutorConfigured && trimmed.length > 0 ? (
+            <CommandGroup heading="Tutor">
+              <CommandItem
+                value={`ask tutor ${trimmed}`}
+                onSelect={() => askTutor(trimmed)}
+              >
+                <MessageSquareText className="mr-2 h-4 w-4 text-agentic" aria-hidden="true" />
+                <div>
+                  <div className="font-medium">Ask the tutor: &ldquo;{trimmed}&rdquo;</div>
+                  <div className="text-xs text-muted-foreground">
+                    Grounded answer from JP 5-0 + Scale corpus.
+                  </div>
+                </div>
+              </CommandItem>
+            </CommandGroup>
+          ) : null}
           {Object.entries(grouped).map(([cluster, clusterNotes]) => (
             <CommandGroup key={cluster} heading={cluster}>
               {clusterNotes.map((note) => (

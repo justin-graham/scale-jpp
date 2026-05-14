@@ -8,50 +8,43 @@ const steps = [
     step: 1,
     title: "Planning initiation",
     prompt: "What starts the work?",
-    tpm: "Frame the authority, timeline, stakeholders, and first commander touchpoint.",
-    engineer: "Identify source documents, data boundaries, and what the system is allowed to ingest.",
+    body: "Frame authority, timeline, stakeholders, and the first commander touchpoint. Identify source documents and what the system is allowed to ingest.",
   },
   {
     step: 2,
     title: "Mission analysis",
     prompt: "What must be true for the mission to be understood?",
-    tpm: "Separate specified, implied, and essential tasks. Push ambiguity back to the right owner.",
-    engineer: "Model requirements, assumptions, constraints, and information gaps as first-class objects.",
+    body: "Separate specified, implied, and essential tasks. Surface assumptions, constraints, and information gaps as first-class objects. Draft CCIRs with the commander.",
   },
   {
     step: 3,
     title: "COA development",
     prompt: "What distinguishable options should exist?",
-    tpm: "Make sure options are genuinely different, not variations of a favorite answer.",
-    engineer: "Generate candidate COAs with provenance, criteria coverage, and simulator-ready parameters.",
+    body: "Produce broad approaches that are genuinely different, not variations of a favorite. Each candidate carries narrative, capabilities, sustainment concept, and risks.",
   },
   {
     step: 4,
     title: "COA analysis",
     prompt: "How does the plan break?",
-    tpm: "Protect time for wargaming; this is where false confidence gets exposed.",
-    engineer: "Run scripted adversary reactions, log traces, and preserve failure cases for evaluation.",
+    body: "Wargame action-reaction-counteraction against likely and dangerous enemy COAs. Protect the time; this is where false confidence gets exposed. Log failure cases.",
   },
   {
     step: 5,
     title: "COA comparison",
     prompt: "What evidence supports the recommendation?",
-    tpm: "Ask whether criteria were defined before the ranking emerged.",
-    engineer: "Show score inputs, uncertainty, model outputs, and human overrides.",
+    body: "Lock evaluation criteria before scoring. Show score inputs, uncertainty, and the basis for each ranking — including any human overrides.",
   },
   {
     step: 6,
     title: "COA approval",
     prompt: "Who owns the risk?",
-    tpm: "The commander decides; the artifact should sharpen judgment, not replace it.",
-    engineer: "Approval gates, audit trails, and escalation policy are product requirements.",
+    body: "The commander decides; the system sharpens judgment, not replaces it. Approval gates, audit trails, and escalation policy are product requirements, not afterthoughts.",
   },
   {
     step: 7,
     title: "Plan or order development",
     prompt: "How does the decision become executable direction?",
-    tpm: "Keep the order aligned to intent, assumptions, branches, sequels, and assessment.",
-    engineer: "Treat generated text as downstream rendering of approved structured decisions.",
+    body: "Render the approved COA into an order aligned to intent, assumptions, branches, sequels, and assessment. Treat generated text as a downstream rendering of approved structured decisions.",
   },
 ] as const;
 
@@ -87,20 +80,7 @@ export function MiniJppCapstone({ openStep }: { openStep?: (slug: string) => voi
         <div className="rounded-md border bg-background p-4">
           <div className="font-mono text-xs text-muted-foreground">Fictional decision point</div>
           <h4 className="mt-2 text-lg font-semibold">{active.prompt}</h4>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <div className="rounded-md border border-doctrine/30 bg-doctrine/10 p-3">
-              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-doctrine">
-                TPM lens
-              </div>
-              <p className="text-sm leading-6">{active.tpm}</p>
-            </div>
-            <div className="rounded-md border border-agentic/40 bg-agentic/10 p-3">
-              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-700 dark:text-agentic">
-                Engineer lens
-              </div>
-              <p className="text-sm leading-6">{active.engineer}</p>
-            </div>
-          </div>
+          <p className="mt-4 text-sm leading-7">{active.body}</p>
         </div>
       </div>
     </div>

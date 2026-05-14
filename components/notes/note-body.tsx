@@ -45,9 +45,8 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           </p>
           <p>
             Start with {link("joint-planning-purpose", "joint planning purpose")}, then
-            move through the {link("jpp-seven-steps", "seven-step JPP spine")}. Engineers
-            should keep {link("engineer-architecture", "JPP as an interface contract")} open
-            in the stack.
+            move through the {link("jpp-seven-steps", "seven-step JPP spine")}. The
+            agentic overlay starts at {link("agentic-jpp-overview", "the bridge map")}.
           </p>
           <JppRing lensOn={lensOn} openStep={openNote} />
         </>
@@ -75,7 +74,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           <TradeSpace />
           <p>
             Next: {link("ends-ways-means-risk", "the trade space")} and{" "}
-            {link("apex-jpp-engine", "where JPP fits inside APEX")}.
+            {link("jpp-seven-steps", "the seven-step spine")}.
           </p>
         </>
       );
@@ -94,54 +93,24 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           </SourceCallout>
         </>
       );
-    case "apex-jpp-engine":
-      return (
-        <>
-          <p>
-            <AcronymTooltip term="APEX" /> is the enterprise.{" "}
-            <AcronymTooltip term="JPP" /> is the analytical process planners use to
-            frame a problem, examine the mission, develop and compare COAs, and produce
-            a plan or order.
-          </p>
-          <p>
-            The useful mental model is nested: strategic guidance and the{" "}
-            <AcronymTooltip term="JPEC" /> create planning demand; JPP creates the
-            repeatable work loop.
-          </p>
-          <JppRing lensOn={lensOn} openStep={openNote} />
-        </>
-      );
-    case "decision-advantage":
+    case "agentic-not-chatbot":
       return (
         <>
           <p>
             Scale&apos;s public argument is not that AI writes prettier plans. It is that
-            agentic systems compress the Observe, Orient, Decide, Act loop and let U.S.
+            agentic systems compress the <AcronymTooltip term="OODA" /> loop and let U.S.
             forces produce better options before an adversary can exploit delay. The
             white paper compresses that thesis into{" "}
             <SourceQuote kind="scale" source="Scale white paper p. 6">
               Agentic Warfare is deterrence by decision advantage.
             </SourceQuote>
-            .
           </p>
-          {lensOn ? (
-            <SourceCallout kind="inference" title="Agentic Lens">
-              In product terms, decision advantage depends on the whole system: data
-              ingestion, agent routing, simulator calls, traceability, evaluation, and
-              commander approval.
-            </SourceCallout>
-          ) : null}
-          <p>Open {link("planning-multiverse", "the planning multiverse")} next.</p>
-        </>
-      );
-    case "agentic-not-chatbot":
-      return (
-        <>
           <p>
-            The white paper is explicit: Thunderforge is not primarily about faster
-            warning orders or staff-estimate paperwork. The high-leverage work is
-            higher-level planning judgment, especially COA development, wargaming, and
-            comparison. In Scale&apos;s phrasing, Thunderforge is{" "}
+            The white paper is also explicit about what Thunderforge is{" "}
+            <em>not</em>: it is not primarily about faster warning orders or
+            staff-estimate paperwork. The high-leverage work is higher-level planning
+            judgment, especially COA development, wargaming, and comparison.
+            Thunderforge is{" "}
             <SourceQuote kind="scale" source="Scale white paper p. 25">
               not focused on using AI to enable the quicker completion of the paperwork of
               planning
@@ -154,20 +123,35 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             and human approval gates.
           </p>
           <ArchitectureDiagram />
+          {lensOn ? (
+            <SourceCallout kind="inference" title="Agentic Lens">
+              In product terms, decision advantage depends on the whole system: data
+              ingestion, agent routing, simulator calls, traceability, evaluation, and
+              commander approval.
+            </SourceCallout>
+          ) : null}
+          <p>Open {link("planning-multiverse", "the planning multiverse")} next.</p>
         </>
       );
     case "jpp-seven-steps":
       return (
         <>
           <p>
-            JP 5-0 names seven steps. It also says the process can be modified,
-            truncated, concurrent, or iterative. Treat the steps as a disciplined loop, not
-            a brittle waterfall. JP 5-0 calls the JPP{" "}
+            <AcronymTooltip term="APEX" /> is the enterprise.{" "}
+            <AcronymTooltip term="JPP" /> is the engine inside it — the analytical process
+            planners use to frame a problem, examine the mission, develop and compare
+            COAs, and produce a plan or order. Strategic guidance and the{" "}
+            <AcronymTooltip term="JPEC" /> create planning demand; the seven JPP steps
+            create the repeatable work loop.
+          </p>
+          <p>
+            JP 5-0 names the seven steps and says the process can be modified, truncated,
+            concurrent, or iterative. Treat them as a disciplined loop, not a brittle
+            waterfall:{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-10">
               an orderly, analytical set of logical steps to frame a problem; examine a
               mission; develop, analyze, and compare alternative COAs...
             </SourceQuote>
-            .
           </p>
           <JppRing lensOn={lensOn} openStep={openNote} />
           <p>
@@ -395,17 +379,28 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           <p>
             Step 7 turns the approved COA into executable direction: a plan or order
             aligned to commander&apos;s intent, assumptions, branches, sequels, and assessment.
+            The output names: <AcronymTooltip term="OPLAN" />,{" "}
+            <AcronymTooltip term="CONPLAN" />, <AcronymTooltip term="OPORD" />, and the
+            order family (<AcronymTooltip term="WARNORD" />,{" "}
+            <AcronymTooltip term="FRAGORD" />) that fires through execution.
           </p>
           <JppRing currentStep={7} lensOn={lensOn} openStep={openNote} />
           {lensOn ? (
-            <p>
-              The white paper&apos;s living-plan section is explicitly future-facing. It opens
-              with{" "}
-              <SourceQuote kind="scale" source="Scale white paper p. 33">
-                Though not yet a capability
-              </SourceQuote>
-              , so the Atlas marks it as future direction rather than current capability.
-            </p>
+            <>
+              <p>
+                The white paper&apos;s living-plan section names the destination — plans
+                that self-update as new battlefield data arrives — and is careful to mark
+                it as future direction. It opens with{" "}
+                <SourceQuote kind="scale" source="Scale white paper p. 33">
+                  Though not yet a capability
+                </SourceQuote>
+                .
+              </p>
+              <SourceCallout kind="scale" title="Important caveat">
+                Treat living plans as a roadmap concept. Do not present it as fielded
+                capability unless a public source says so.
+              </SourceCallout>
+            </>
           ) : null}
         </>
       );
@@ -551,6 +546,14 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             confidence-bound COAs.
           </p>
           <ArchitectureDiagram />
+          <p>
+            For engineers, the right read of JP 5-0 is as an interface contract. Doctrine
+            names the objects the system has to preserve: mission statements,
+            assumptions, CCIRs, COAs, evaluation criteria, branches, sequels, and
+            approval decisions. The job is not to make a chatbot sound doctrinal — it is
+            to preserve structure, provenance, simulator evidence, traceability, and
+            human decision authority.
+          </p>
           <p>Next: {link("simulator-layer-safe-sim", "the simulator layer")}.</p>
         </>
       );
@@ -592,20 +595,6 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             evaluated.
           </p>
           <TraceViewer />
-        </>
-      );
-    case "living-plans":
-      return (
-        <>
-          <p>
-            The white paper&apos;s living-plan section is compelling because it names the
-            destination: plans that update as new battlefield data arrives. It is also
-            careful: it says this is not yet a capability.
-          </p>
-          <SourceCallout kind="scale" title="Important Caveat">
-            Treat living plans as a roadmap concept. Do not present it as fielded
-            capability unless a public source says so.
-          </SourceCallout>
         </>
       );
     case "human-on-the-loop":
@@ -652,22 +641,6 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
               ),
             )}
           </div>
-        </>
-      );
-    case "engineer-architecture":
-      return (
-        <>
-          <p>
-            Engineers should read JP 5-0 as an interface contract. Doctrine names the
-            objects users care about: mission statements, assumptions, CCIRs, COAs,
-            evaluation criteria, branches, sequels, and approval decisions.
-          </p>
-          <ArchitectureDiagram />
-          <p>
-            The job is not to make a chatbot sound doctrinal. The job is to preserve
-            structure, provenance, simulator evidence, traceability, and human decision
-            authority.
-          </p>
         </>
       );
     case "agentic-jpp-overview":

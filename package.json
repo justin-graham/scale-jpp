@@ -4,14 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run content:validate && npm run graph:build",
+    "prebuild": "npm run corpus:build",
     "build": "next build && pagefind --site out",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "content:validate": "tsx scripts/validate-content.ts",
-    "graph:build": "tsx scripts/build-link-graph.ts"
+    "corpus:build": "tsx scripts/build-corpus.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
