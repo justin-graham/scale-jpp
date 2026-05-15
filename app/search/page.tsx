@@ -3,7 +3,7 @@ import { TopBar } from "@/components/chrome/top-bar";
 import { notes } from "@/lib/atlas-data";
 
 export const metadata = {
-  title: "Search",
+  title: "Thunderforge",
   description: "Browse searchable Atlas notes.",
 };
 

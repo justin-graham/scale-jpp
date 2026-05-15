@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: NotePageProps): Promise<Metad
     return {};
   }
   return {
-    title: note.title,
+    title: "Thunderforge",
     description: note.summary,
   };
 }

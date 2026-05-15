@@ -13,13 +13,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const withBasePath = (path: string) => `${basePath}${path}`;
+
 export const metadata: Metadata = {
-  title: {
-    default: "Thunderforge JPP Guide",
-    template: "%s | Thunderforge JPP Guide",
-  },
+  title: "Thunderforge",
   description:
     "A public-safe interactive learning guide for JP 5-0 and Scale AI's agentic planning approach.",
+  icons: {
+    icon: [
+      { url: withBasePath("/favicon.ico"), sizes: "any" },
+      { url: withBasePath("/icon.png"), type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: withBasePath("/apple-icon.png"), sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({
