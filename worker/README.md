@@ -33,7 +33,7 @@ Then in `worker/`:
 npm run dev
 ```
 
-The worker listens on `http://localhost:8787`. Set `NEXT_PUBLIC_TUTOR_URL=http://localhost:8787` in the site's `.env.local` and `npm run dev` the site. Cmd-K → type a question → "Ask the tutor".
+The worker listens on `http://localhost:8787`. The site defaults to the deployed Worker; to test local changes, set `NEXT_PUBLIC_TUTOR_URL=http://localhost:8787` in the site's `.env.local` and `npm run dev` the site. Cmd-K → type a question → "Ask the tutor".
 
 ## Deploy
 
@@ -41,7 +41,7 @@ The worker listens on `http://localhost:8787`. Set `NEXT_PUBLIC_TUTOR_URL=http:/
 npm run deploy
 ```
 
-Wrangler prints the public URL. Set it as `NEXT_PUBLIC_TUTOR_URL` in the site's GitHub Pages build (e.g., a repo secret consumed in the deploy workflow).
+Wrangler prints the public URL. The current deployed URL is the default in `next.config.ts`; update that default, or set `NEXT_PUBLIC_TUTOR_URL` in the site's build environment, if the Worker URL changes.
 
 ## CORS
 

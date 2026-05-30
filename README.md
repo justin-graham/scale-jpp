@@ -2,7 +2,7 @@
 
 A public-safe, interactive learning artifact for absorbing JP 5-0 alongside Scale AI's public agentic planning framing.
 
-The site is a Next.js static export deployed to GitHub Pages. Bodies render client-side; the rich teaching components (JPP ring, COA comparator, predict-then-reveal, animated architecture diagram) live in React. An **optional grounded tutor** runs on a separately deployed Cloudflare Worker against DeepSeek (open-weights), with the corpus auto-built from the notes.
+The site is a Next.js static export deployed to GitHub Pages. Bodies render client-side; the rich teaching components (JPP ring, COA comparator, predict-then-reveal, animated architecture diagram) live in React. A grounded tutor runs on a separately deployed Cloudflare Worker against DeepSeek (open-weights), with the corpus auto-built from the notes.
 
 ## Source Material
 
@@ -18,7 +18,7 @@ npm install
 npm run dev
 ```
 
-Open <http://localhost:3000>. The tutor will be offline until you set `NEXT_PUBLIC_TUTOR_URL` (see [worker/README.md](worker/README.md)).
+Open <http://localhost:3000>. The tutor defaults to the deployed Worker. To point the site at a local Worker, set `NEXT_PUBLIC_TUTOR_URL` in `.env.local` (see [worker/README.md](worker/README.md)).
 
 ## Checks
 
@@ -38,9 +38,9 @@ npm run build
 
 Source-claim kinds: `doctrine` (JP 5-0), `scale` (Scale white paper / blog), `inference` (public-source bridge), `scenario` (fictional teaching vignette).
 
-## Tutor (Optional)
+## Tutor
 
-The tutor is a separate Cloudflare Worker in `worker/`. It proxies questions to DeepSeek with the JPP/Scale corpus as a cached system prompt. The site detects the tutor's URL via `NEXT_PUBLIC_TUTOR_URL` and degrades to a "Tutor offline" state when unset.
+The tutor is a separate Cloudflare Worker in `worker/`. It proxies questions to DeepSeek with the JPP/Scale corpus as a cached system prompt. The site defaults `NEXT_PUBLIC_TUTOR_URL` to the deployed Worker in `next.config.ts`; environment variables can override that for local or alternate deployments.
 
 See [worker/README.md](worker/README.md) for deploy steps.
 
