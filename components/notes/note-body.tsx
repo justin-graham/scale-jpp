@@ -26,8 +26,8 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            This Atlas is built for the first month on Thunderforge: enough JP 5-0 to
-            follow a planning conversation, enough public Scale framing to understand
+            I built this to prepare working on Thunderforge: enough JP 5-0 to
+            follow planning talk, enough Scale framing to understand
             why agentic planning matters, and enough engineering structure to reason
             about traces, simulators, and approval gates.
           </p>
@@ -36,7 +36,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             <SourceQuote kind="doctrine" source="JP 5-0 Preface">
               identifying military ways and means (with associated risk)
             </SourceQuote>
-            . Scale material is treated as public product thesis, such as Thunderforge
+            . Scale material is treated as product thesis, such as Thunderforge
             being described as a platform that{" "}
             <SourceQuote kind="scale" source="Scale white paper p. 25">
               integrates AI agents into operational and theater-level planning
@@ -44,8 +44,8 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             . Purple inference labels mark the bridge between them.
           </p>
           <p>
-            Start with {link("joint-planning-purpose", "joint planning purpose")}, then
-            move through the {link("jpp-seven-steps", "seven-step JPP spine")}. The
+            Start with {link("joint-planning-purpose", "ways, means, and ends")}, then
+            move through the {link("jpp-seven-steps", "seven steps of the JPP")}. The
             agentic overlay starts at {link("agentic-jpp-overview", "the bridge map")}.
           </p>
           <JppRing lensOn={lensOn} openStep={openNote} />
@@ -55,26 +55,27 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            JP 5-0 defines joint planning as identifying military ways and means, with
-            associated risk, that national leaders can combine with other instruments of
-            power. Its exact framing is{" "}
+            The JP 5-0&apos;s exact framing is{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 Preface">
               Joint planning is the process of identifying military ways and means (with
               associated risk)...
             </SourceQuote>
-            . The output is not merely a document. It is a structured set of options for
-            decision.
+            . The output is a structured set of options for decisions.
           </p>
           <p>
-            That means a TPM should listen for the nouns that carry product weight:
+            TPMs should listen for the nouns that carry product weight:
             objective, end state, risk, assumption, constraint, task, and
-            commander&apos;s intent. An engineer should listen for the same nouns as data
+            commander&apos;s intent. Engineers should listen for the same nouns as data
             contracts.
+          </p>
+          <p>
+            Ends, ways, means, and risk are coupled. A more ambitious end state without
+            more time or means raises risk. More means may lower risk, but can introduce
+            political, access, logistics, or escalation costs.
           </p>
           <TradeSpace />
           <p>
-            Next: {link("ends-ways-means-risk", "the trade space")} and{" "}
-            {link("jpp-seven-steps", "the seven-step spine")}.
+            Next: {link("jpp-seven-steps", "seven steps of the JPP")}.
           </p>
         </>
       );
@@ -130,24 +131,23 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
               commander approval.
             </SourceCallout>
           ) : null}
-          <p>Open {link("planning-multiverse", "the planning multiverse")} next.</p>
+          <p>Open {link("planning-multiverse", "agentic planning")} next.</p>
         </>
       );
     case "jpp-seven-steps":
       return (
         <>
           <p>
-            <AcronymTooltip term="APEX" /> is the enterprise.{" "}
+            <AcronymTooltip term="APEX" /> is the function.{" "}
             <AcronymTooltip term="JPP" /> is the engine inside it — the analytical process
             planners use to frame a problem, examine the mission, develop and compare
-            COAs, and produce a plan or order. Strategic guidance and the{" "}
+            COAs, and produce a plan. Strategic guidance and the{" "}
             <AcronymTooltip term="JPEC" /> create planning demand; the seven JPP steps
             create the repeatable work loop.
           </p>
           <p>
             JP 5-0 names the seven steps and says the process can be modified, truncated,
-            concurrent, or iterative. Treat them as a disciplined loop, not a brittle
-            waterfall:{" "}
+            concurrent, or iterative. Treat them as a disciplined loop:{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-10">
               an orderly, analytical set of logical steps to frame a problem; examine a
               mission; develop, analyze, and compare alternative COAs...
@@ -155,7 +155,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           </p>
           <JppRing lensOn={lensOn} openStep={openNote} />
           <p>
-            The high-payoff steps for the public Thunderforge thesis are{" "}
+            The high-payoff steps for the Thunderforge thesis are{" "}
             {link("coa-development", "COA development")} and{" "}
             {link("coa-analysis-wargaming", "COA analysis and wargaming")}.
           </p>
@@ -165,14 +165,12 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            Planning begins when an appropriate authority recognizes the potential need
-            for military capability. Staffs analyze guidance, available time, estimates,
-            intelligence products, assumptions, and constraints. JP 5-0 says{" "}
+            JP 5-0 says{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-11">
               Joint planning begins when an appropriate authority recognizes potential for
               military capability to be employed...
-            </SourceQuote>
-            .
+            </SourceQuote>. Staffs analyze guidance, available time,
+            intelligence products, assumptions, and constraints.
           </p>
           <JppRing currentStep={1} lensOn={lensOn} openStep={openNote} />
           {lensOn ? (
@@ -188,9 +186,9 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            Mission analysis is where the staff turns direction into understanding.
+            Mission analysis is where the commander&apos;s intent turns into understanding.
             Outputs: specified, implied, and essential tasks; restated mission; COGs;
-            limitations (constraints and restraints); risk; initial{" "}
+            limitations; risk; initial{" "}
             <AcronymTooltip term="CCIR" /> split between{" "}
             <AcronymTooltip term="PIR" /> and <AcronymTooltip term="FFIR" />; and
             evaluation criteria. JP 5-0 says{" "}
@@ -201,8 +199,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           </p>
           <JppRing currentStep={2} lensOn={lensOn} openStep={openNote} />
           <p>
-            The three task buckets are not synonyms. Specified tasks are directed in
-            higher-HQ orders. Implied tasks are not directed but are needed for the
+            Specified tasks are directed. Implied tasks are not directed but are needed for the
             specified tasks to succeed. Essential tasks are the small subset whose failure
             means mission failure.
           </p>
@@ -223,7 +220,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             </p>
           ) : null}
           <p>
-            Misclassifying tasks is not a vocabulary error. It changes what the staff
+            Misclassifying tasks changes what the staff
             builds next in {link("coa-development", "COA development")}.
           </p>
         </>
@@ -233,9 +230,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
         <>
           <p>
             COA development produces broad, distinguishable ways to accomplish the
-            mission. JP 5-0 expects narrative, sketches where useful, required
-            capabilities, task organization, timelines, sustainment concepts, and risks.
-            It defines COAs as{" "}
+            mission. JP 5-0 defines COAs as{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-33">
               subsets of options that identify specific military operations to attain the
               end state...
@@ -243,8 +238,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           </p>
           <JppRing currentStep={3} lensOn={lensOn} openStep={openNote} />
           <p>
-            The discipline is genuine distinguishability. Five candidate COAs that vary
-            only on lift assets are one COA dressed up five times. Doctrine screens each
+            The discipline is genuine distinguishability. Doctrine screens each
             candidate against five criteria: suitable, feasible, acceptable,
             distinguishable, and complete. A COA that fails any of these gets rebuilt or
             dropped before it reaches wargaming.
@@ -275,9 +269,9 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            JP 5-0 describes wargaming as a disciplined, iterative process of action,
+            JP 5-0 describes wargaming as an iterative process of action,
             reaction, and counteraction. Each retained friendly COA is tested against
-            most-likely and most-dangerous enemy COAs. The output is not a winner; it is
+            most-likely and most-dangerous enemy COAs. The output is
             a richer understanding of what breaks, where, and why.{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-53">
               Planners avoid becoming emotionally attached to a friendly COA...
@@ -304,7 +298,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
               <SourceQuote kind="scale" source="Scale white paper p. 32">
                 running thousands or even hundreds of thousands of permutations
               </SourceQuote>
-              . See {link("planning-multiverse", "the planning multiverse")} for the
+              . See {link("planning-multiverse", "agentic planning")} for the
               agentic delta.
             </p>
           ) : null}
@@ -325,9 +319,9 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           </p>
           <JppRing currentStep={5} lensOn={lensOn} openStep={openNote} />
           <p>
-            The discipline is sequence. Evaluation criteria are defined and weighted
+            Evaluation criteria are defined and weighted
             <em> before </em>
-            COAs are scored. Reversing the sequence lets the favored COA quietly select
+            COAs are scored. Reversing the sequence lets the favored COA select
             its own grading rubric. The comparator below makes that failure mode visible:
             pick a winner first, then move weights, and watch which criteria the
             recommendation suddenly prefers.
@@ -353,9 +347,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            The staff briefs. The commander decides. JP 5-0&apos;s approval step combines
-            staff recommendation with the commander&apos;s analysis, experience, and judgment:
-            the commander{" "}
+            The commander decides. The commander{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-59">
               combines personal analysis with the staff recommendation, resulting in a
               selected COA.
@@ -554,7 +546,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             to preserve structure, provenance, simulator evidence, traceability, and
             human decision authority.
           </p>
-          <p>Next: {link("simulator-layer-safe-sim", "the simulator layer")}.</p>
+          <p>Next: {link("planning-multiverse", "agentic planning")}.</p>
         </>
       );
     case "planning-multiverse":
@@ -563,24 +555,14 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           <p>
             The planning multiverse reframes wargaming as exploration of many possible
             futures. Instead of a handful of manual runs, agentic systems can help produce
-            structured scenario sets for human decision. Scale says{" "}
+            structured scenario sets for human decision. {" "}
             <SourceQuote kind="scale" source="Scale white paper p. 32">
               The agentic system presents planners with a structured set of these
               scenarios...
             </SourceQuote>
           </p>
-          <TraceViewer />
           <p>
-            The risk is false precision. That is why {link("te-justifiable-confidence", "T&E")} and
-            evidence provenance belong in the product, not in a separate compliance deck.
-          </p>
-        </>
-      );
-    case "simulator-layer-safe-sim":
-      return (
-        <>
-          <p>
-            Scale describes three layers: natural language UI, an agent layer that calls
+            It comes in three layers: natural language UI, an agent layer that calls
             tools and synthesizes responses, and a simulation layer of validated models.
             The interface goal is for{" "}
             <SourceQuote kind="scale" source="Scale white paper pp. 30-31">
@@ -588,13 +570,16 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
             </SourceQuote>
             .
           </p>
-          <p>SAFE-SiM is discussed as one modeling tool among many, not as the entire simulator ecosystem.</p>
           <p>
             Engineer implication: simulator calls need explicit inputs, versioned model
             metadata, uncertainty, failure modes, and trace linkage back to the COA being
             evaluated.
           </p>
           <TraceViewer />
+          <p>
+            False precision is a risk, which is why {link("te-justifiable-confidence", "T&E")} and
+            evidence provenance belong in the product, not in a separate compliance deck.
+          </p>
         </>
       );
     case "human-on-the-loop":
@@ -620,7 +605,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            Scale&apos;s public T&E framing is the strongest guardrail against AI theater.
+            Scale&apos;s public Test and Evaluation framing is the strongest guardrail against AI hallucination.
             The system has to characterize what agents can do reliably, where they fail,
             and what oversight system contains that risk. The white paper says commanders
             need{" "}
@@ -647,12 +632,8 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            The public Scale framing concentrates agent leverage on COA development and
-            wargaming. JP 5-0 still owns the structure of the seven steps; Thunderforge
-            adds an agent layer that touches each step at different depth.{" "}
-            <SourceQuote kind="scale" source="Scale white paper p. 25">
-              higher level tasks
-            </SourceQuote>
+            Although all planning steps will be accounted for eventually, Scale concentrates agent leverage on COA development and
+            wargaming. Thunderforge adds an agent layer that touches each step at different depth.
           </p>
           <JppRing lensOn openStep={openNote} />
           <div className="my-6 grid gap-2">
@@ -676,15 +657,10 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
               </div>
             ))}
           </div>
-          <SourceCallout kind="inference" title="Inference, not Scale claim">
-            The per-step weighting above is a teaching abstraction. Scale&apos;s white
-            paper is explicit about steps 3 and 4 being high-leverage; the rest is a
-            public-source bridge.
-          </SourceCallout>
           <p>
             Continue to {link("agentic-mission-analysis", "agentic mission analysis")},{" "}
             {link("agentic-coa-development", "agentic COA development")},{" "}
-            {link("planning-multiverse", "the planning multiverse")} for step 4, and{" "}
+            {link("planning-multiverse", "agentic planning")} for step 4, and{" "}
             {link("agentic-coa-comparison", "agentic COA comparison")}.
           </p>
         </>
@@ -695,23 +671,17 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           <p>
             Under an agent layer, the inputs to mission analysis (higher-HQ orders,
             intelligence products, prior plans) get ingested, parsed, and pre-classified
-            before a human reads them. The output is not a finished mission statement.
-            It is a stack of proposals with provenance: specified vs. implied vs.
+            before a human reads them. The output is a stack of proposals with specified vs. implied vs.
             essential candidates, draft CCIRs linked to objectives, and candidate COGs
             surfaced from {" "}
             <AcronymTooltip term="PMESII-PT" /> signals.
           </p>
           <JppRing currentStep={2} lensOn openStep={openNote} />
           <p>
-            The discipline is that proposals are not decisions. A task labeled
-            &ldquo;essential&rdquo; by an agent is a hypothesis; the staff confirms or
+            A task labeled &ldquo;essential&rdquo; by an agent is a hypothesis; the staff confirms or
             overrides. Every proposal carries the source it came from so the staff can
             audit the chain back to the higher-HQ order.
           </p>
-          <SourceCallout kind="inference" title="Inference, not Scale claim">
-            The mission-analysis layer is not described in the white paper. The bridge
-            here is built from JP 5-0 plus the public agent-architecture vocabulary.
-          </SourceCallout>
           <TaskSorter />
           <p>
             Back to the doctrinal step: {link("mission-analysis", "mission analysis")}.
@@ -722,21 +692,18 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
       return (
         <>
           <p>
-            COA development is the public Thunderforge use case. Scale describes{" "}
+            COA development is the Thunderforge main use case. Scale describes{" "}
             <SourceQuote kind="scale" source="Scale white paper p. 25">
               AI agents with automated, physics-based modeling and simulation tools
             </SourceQuote>
             generating candidate COAs in parallel, each with simulator-validated
-            outcomes and confidence bands. The staff still owns the call on whether the
-            candidates span the option space.
+            outcomes and confidence bands.
           </p>
           <JppRing currentStep={3} lensOn openStep={openNote} />
           <p>
-            The product shape: a small set of distinguishable candidates, each with
+            The product shape is a small set of candidates, each with
             narrative, required capabilities, sustainment concept, risks, and a model
-            run summary. Distinguishability is checked the same way it always was, not
-            outsourced. An agent that returns five variants of a favored approach is
-            failing the spec, not the staff.
+            run summary.
           </p>
           <PredictThenReveal
             question="An agent layer returns ten candidate COAs. Is that better than three?"
@@ -750,7 +717,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           <ArchitectureDiagram />
           <p>
             Back to the doctrinal step: {link("coa-development", "COA development")}.
-            Next: {link("planning-multiverse", "the planning multiverse")} for step 4.
+            Next: {link("planning-multiverse", "agentic planning")} for step 4.
           </p>
         </>
       );
@@ -760,8 +727,7 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           <p>
             Agent-assisted comparison surfaces simulator evidence per criterion: this COA
             wins on tempo and loses on sustainment; that COA is robust to enemy
-            interdiction but assumes partner access. The comparison still needs criteria
-            committed before scoring, and JP 5-0 still warns that{" "}
+            interdiction but assumes partner access. The JP 5-0 still warns that{" "}
             <SourceQuote kind="doctrine" source="JP 5-0 III-58">
               COA comparison is subjective and should not be turned into a strictly
               mathematical process.
@@ -769,18 +735,12 @@ export function NoteBody({ note, lensOn, openNote }: NoteBodyProps) {
           </p>
           <JppRing currentStep={5} lensOn openStep={openNote} />
           <p>
-            The architectural move is to make criteria-lock a property of the system. If
+            The architectural move in response to this risk is to make criteria-lock a property of the system. If
             the staff can move weights after the ranking is visible, the bias surface is
-            still open. If the system records the criteria, freezes them, then computes,
-            the audit trail closes the loop. The slider behavior in the comparator below
+            still open. The slider behavior in the comparator below
             is what the staff should <em>not</em> be able to do in production.
           </p>
           <CoaComparator />
-          <SourceCallout kind="inference" title="Inference, not Scale claim">
-            Criteria-lock as an architectural enforcement is a public-source teaching
-            inference. Scale&apos;s framing is about evidence and judgment; it does not
-            specify the workflow constraint.
-          </SourceCallout>
           <p>
             Back to the doctrinal step: {link("coa-comparison", "COA comparison")}.
           </p>

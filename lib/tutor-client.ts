@@ -18,7 +18,7 @@ export async function* streamTutorResponse(
 ): AsyncGenerator<StreamEvent, void, void> {
   const base = getTutorUrl();
   if (!base) {
-    yield { kind: "error", message: "Tutor not configured. Set NEXT_PUBLIC_TUTOR_URL." };
+    yield { kind: "error", message: "Not configured. Set NEXT_PUBLIC_TUTOR_URL." };
     return;
   }
 

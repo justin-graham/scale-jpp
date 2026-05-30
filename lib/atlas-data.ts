@@ -8,7 +8,7 @@ export const sourceLedger = {
   inference:
     "Public-source bridge from JP 5-0 plus Scale's public material; marked so readers can distinguish product inference from published claims.",
   scenario:
-    "Fictional teaching vignette for unclassified learning. Not an operational plan or real target set.",
+    "Teaching vignette for unclassified learning. Not an operational plan or real target set.",
 } as const;
 
 export const trails: Trail[] = [
@@ -28,11 +28,11 @@ const scenario = (label: string, ref: string, quote?: string) => ({ kind: "scena
 
 export const notes: AtlasNote[] = [
   {
-    title: "Start with the Bridge, Not the Binder",
+    title: "Start Here",
     slug: "start-here",
     cluster: "foundations",
     summary:
-      "The Atlas turns JP 5-0 and Scale's public Thunderforge framing into a navigable mental model.",
+      "Turn the JPP 5-0 and Scale's Thunderforge into a navigable mental model.",
     sourceClaims: [
       doctrine("JP 5-0 is the keystone joint planning publication.", "JP 5-0 Preface", "identifying military ways and means (with associated risk)"),
       scale("Thunderforge is publicly described as AI-enabled command, control, and planning.", "Scale white paper p. 25; Scale blog", "integrates AI agents into operational and theater-level planning"),
@@ -42,11 +42,11 @@ export const notes: AtlasNote[] = [
     trailOrder: 1,
   },
   {
-    title: "Joint Planning Translates Strategy into Options",
+    title: "Ways, Means, Ends",
     slug: "joint-planning-purpose",
     cluster: "foundations",
     summary:
-      "JP 5-0 frames joint planning as matching military ways and means, with risk, to national objectives.",
+      "JP 5-0 frames planning as matching military ways and means, with risk, to national objectives.",
     sourceClaims: [
       doctrine("Joint planning identifies military ways and means with associated risk.", "JP 5-0 Preface", "Joint planning is the process of identifying military ways and means"),
     ],
@@ -67,7 +67,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 3,
   },
   {
-    title: "Agentic Planning Is Decision Advantage, Not Faster Paperwork",
+    title: "Agentic Planning Is Decision Advantage",
     slug: "agentic-not-chatbot",
     cluster: "foundations",
     summary:
@@ -81,7 +81,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 4,
   },
   {
-    title: "The JPP Has Seven Steps, but It Is Not Waterfall",
+    title: "Seven Steps of the JPP",
     slug: "jpp-seven-steps",
     cluster: "jpp",
     summary:
@@ -94,7 +94,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 5,
   },
   {
-    title: "Planning Initiation Starts When Authority Recognizes a Need",
+    title: "Planning Initiation",
     slug: "planning-initiation",
     cluster: "jpp",
     summary:
@@ -108,7 +108,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 6,
   },
   {
-    title: "Mission Analysis Is Where Errors Start Cascading",
+    title: "Mission Analysis",
     slug: "mission-analysis",
     cluster: "jpp",
     summary:
@@ -122,7 +122,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 7,
   },
   {
-    title: "COA Development Creates Distinguishable Options",
+    title: "COA Development",
     slug: "coa-development",
     cluster: "jpp",
     summary:
@@ -137,7 +137,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 8,
   },
   {
-    title: "COA Analysis and Wargaming Stress the Plan Before the Enemy Does",
+    title: "Stress the Plan",
     slug: "coa-analysis-wargaming",
     cluster: "jpp",
     summary:
@@ -152,7 +152,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 9,
   },
   {
-    title: "COA Comparison Needs Criteria Before Scoring",
+    title: "COA Comparison Criteria",
     slug: "coa-comparison",
     cluster: "jpp",
     summary:
@@ -166,7 +166,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 10,
   },
   {
-    title: "COA Approval Keeps the Commander in the Decision Seat",
+    title: "COA Approval",
     slug: "coa-approval",
     cluster: "jpp",
     summary:
@@ -181,7 +181,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 11,
   },
   {
-    title: "Plan or Order Development Turns a COA into Direction",
+    title: "COA into Order",
     slug: "plan-order-development",
     cluster: "jpp",
     summary:
@@ -195,7 +195,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 12,
   },
   {
-    title: "Operational Design Frames the Problem Before Detailed Planning",
+    title: "Operational Design",
     slug: "operational-design",
     cluster: "design",
     summary:
@@ -203,12 +203,12 @@ export const notes: AtlasNote[] = [
     sourceClaims: [
       doctrine("Operational design develops understanding of the OE, problem, and operational approach.", "JP 5-0 Ch. IV"),
     ],
-    agenticOverlay: "simulator-layer-safe-sim",
+    agenticOverlay: "planning-multiverse",
     tags: ["operational-design", "problem-framing"],
     trailOrder: 13,
   },
   {
-    title: "COG Analysis Decomposes Strength into Vulnerability",
+    title: "COG Analysis",
     slug: "center-of-gravity-analysis",
     cluster: "design",
     summary:
@@ -220,7 +220,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 14,
   },
   {
-    title: "End State, Objective, Effect, and Task Are Different Altitudes",
+    title: "End State and Objective",
     slug: "end-state-objective-effect-task",
     cluster: "design",
     summary:
@@ -232,7 +232,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 15,
   },
   {
-    title: "Lines of Operation Are Spatial; Lines of Effort Are Logical",
+    title: "Lines of Operation vs Lines of Effort",
     slug: "lines-operation-effort",
     cluster: "design",
     summary:
@@ -244,7 +244,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 16,
   },
   {
-    title: "Thunderforge Targets Operational and Theater-Level Planning",
+    title: "Theater-Level Planning",
     slug: "thunderforge-agentic-planning",
     cluster: "agentic",
     summary:
@@ -257,7 +257,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 17,
   },
   {
-    title: "The Agentic Deltas Concentrate in Steps 3 and 4",
+    title: "Steps 3 and 4",
     slug: "agentic-jpp-overview",
     cluster: "agentic",
     summary:
@@ -270,7 +270,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 18,
   },
   {
-    title: "Agentic Mission Analysis: Propose, Don't Decide",
+    title: "Agentic Mission Analysis",
     slug: "agentic-mission-analysis",
     cluster: "agentic",
     summary:
@@ -285,7 +285,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 19,
   },
   {
-    title: "Agentic COA Development: Parallel Options with Evidence",
+    title: "Agentic COA Development",
     slug: "agentic-coa-development",
     cluster: "agentic",
     summary:
@@ -299,19 +299,20 @@ export const notes: AtlasNote[] = [
     trailOrder: 20,
   },
   {
-    title: "The Planning Multiverse Makes Wargaming a Search Space",
+    title: "Agentic Planning",
     slug: "planning-multiverse",
     cluster: "agentic",
     summary:
-      "Scale describes agentic planning as generating thousands or hundreds of thousands of scenario permutations.",
+      "Scale describes agentic planning as multiverse exploration over simulator-backed scenario permutations.",
     sourceClaims: [
       scale("Agentic Planning systems can generate planning multiverses over many permutations.", "Scale white paper pp. 29-32", "strategic, operational, and tactical planning \"multiverses\""),
+      scale("Scale describes natural-language UI, agent layer, and simulation layer, including SAFE-SiM as one tool.", "Scale white paper pp. 30-31", "automate calls to simulators through a natural language interface"),
     ],
-    tags: ["simulation", "multiverse", "wargaming", "step-4"],
+    tags: ["simulation", "multiverse", "wargaming", "step-4", "safe-sim"],
     trailOrder: 21,
   },
   {
-    title: "Agentic COA Comparison: Lock the Criteria, Then Score",
+    title: "Agentic COA Comparison",
     slug: "agentic-coa-comparison",
     cluster: "agentic",
     summary:
@@ -326,19 +327,7 @@ export const notes: AtlasNote[] = [
     trailOrder: 22,
   },
   {
-    title: "The Simulator Layer Is Where Agentic Planning Gets Empirical",
-    slug: "simulator-layer-safe-sim",
-    cluster: "agentic",
-    summary:
-      "The white paper describes a three-layer stack: natural language UI, agent layer, and simulation layer.",
-    sourceClaims: [
-      scale("Scale describes natural-language UI, agent layer, and simulation layer, including SAFE-SiM as one tool.", "Scale white paper pp. 30-31", "automate calls to simulators through a natural language interface"),
-    ],
-    tags: ["simulators", "safe-sim", "orsas"],
-    trailOrder: 23,
-  },
-  {
-    title: "Human-on-the-Loop Means Oversight, Judgment, and Risk Ownership",
+    title: "Human-on-the-Loop",
     slug: "human-on-the-loop",
     cluster: "governance",
     summary:
@@ -347,10 +336,10 @@ export const notes: AtlasNote[] = [
       scale("Scale distinguishes in-the-loop bottlenecks from on-the-loop mission direction.", "Scale white paper pp. 7-8", "mission directors who provide oversight"),
     ],
     tags: ["human-control", "approval-gates", "risk"],
-    trailOrder: 24,
+    trailOrder: 23,
   },
   {
-    title: "Justifiable Confidence Comes from T&E, Not Trust Theater",
+    title: "Test and Evaluation",
     slug: "te-justifiable-confidence",
     cluster: "governance",
     summary:
@@ -359,10 +348,10 @@ export const notes: AtlasNote[] = [
       scale("Scale identifies four T&E layers and lifecycle red teaming for agentic systems.", "Scale white paper pp. 44-46", "justifiable confidence"),
     ],
     tags: ["evaluation", "te", "confidence"],
-    trailOrder: 25,
+    trailOrder: 24,
   },
   {
-    title: "Mini-JPP Run: Practice the Loop Once",
+    title: "Mini-JPP Run",
     slug: "mini-jpp-capstone",
     cluster: "capstone",
     summary:
@@ -372,7 +361,7 @@ export const notes: AtlasNote[] = [
       scenario("Scenario details are fictional and built for learning.", "Fictional learning model"),
     ],
     tags: ["capstone", "practice", "fictional"],
-    trailOrder: 26,
+    trailOrder: 25,
   },
 ];
 

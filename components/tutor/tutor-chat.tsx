@@ -124,10 +124,7 @@ function TutorChatInner({ variant = "full" }: TutorChatProps) {
     <div className={cn("flex flex-col rounded-md border bg-card", variant === "full" ? "min-h-96" : "min-h-72")}>
       <div className="border-b px-4 py-3">
         <div className="text-xs font-semibold uppercase tracking-[0.14em] text-agentic">
-          Tutor (grounded in JP 5-0 + Scale)
-        </div>
-        <div className="mt-1 text-xs text-muted-foreground">
-          Open-source model. Answers only from the corpus. Inferences are marked.
+          Claude Agent
         </div>
       </div>
 

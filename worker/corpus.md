@@ -6,7 +6,7 @@ You answer questions strictly from the corpus below. It is built from JP 5-0 (Jo
 - **doctrine**: JP 5-0, Joint Planning, 1 Dec 2020. Local source: docs/source/jp5_0.pdf.
 - **scale**: Scale AI, The Agentic Revolution in War, Jan 2026, and Scale Thunderforge blog. Local source: docs/source/Scale Agentic Warfare.pdf.
 - **inference**: Public-source bridge from JP 5-0 plus Scale's public material; marked so readers can distinguish product inference from published claims.
-- **scenario**: Fictional teaching vignette for unclassified learning. Not an operational plan or real target set.
+- **scenario**: Teaching vignette for unclassified learning. Not an operational plan or real target set.
 
 ---
 
@@ -54,13 +54,13 @@ You answer questions strictly from the corpus below. It is built from JP 5-0 (Jo
 
 ---
 
-## Start with the Bridge, Not the Binder
+## Start Here
 slug: start-here
 cluster: foundations
 agenticOverlay: thunderforge-agentic-planning
 tags: orientation, public-safe, thunderforge
 
-Summary: The Atlas turns JP 5-0 and Scale's public Thunderforge framing into a navigable mental model.
+Summary: Turn the JPP 5-0 and Scale's Thunderforge into a navigable mental model.
 
 Source claims:
 - [doctrine] JP 5-0 is the keystone joint planning publication. — JP 5-0 Preface. Quote: "identifying military ways and means (with associated risk)"
@@ -68,12 +68,12 @@ Source claims:
 
 ---
 
-## Joint Planning Translates Strategy into Options
+## Ways, Means, Ends
 slug: joint-planning-purpose
 cluster: foundations
 tags: ends, ways, means, risk
 
-Summary: JP 5-0 frames joint planning as matching military ways and means, with risk, to national objectives.
+Summary: JP 5-0 frames planning as matching military ways and means, with risk, to national objectives.
 
 Source claims:
 - [doctrine] Joint planning identifies military ways and means with associated risk. — JP 5-0 Preface. Quote: "Joint planning is the process of identifying military ways and means"
@@ -93,7 +93,7 @@ Source claims:
 
 ---
 
-## Agentic Planning Is Decision Advantage, Not Faster Paperwork
+## Agentic Planning Is Decision Advantage
 slug: agentic-not-chatbot
 cluster: foundations
 agenticOverlay: thunderforge-agentic-planning
@@ -107,7 +107,7 @@ Source claims:
 
 ---
 
-## The JPP Has Seven Steps, but It Is Not Waterfall
+## Seven Steps of the JPP
 slug: jpp-seven-steps
 cluster: jpp
 tags: jpp, seven-steps, apex, iteration
@@ -120,7 +120,7 @@ Source claims:
 
 ---
 
-## Planning Initiation Starts When Authority Recognizes a Need
+## Planning Initiation
 slug: planning-initiation
 cluster: jpp
 jppStep: 1
@@ -134,7 +134,7 @@ Source claims:
 
 ---
 
-## Mission Analysis Is Where Errors Start Cascading
+## Mission Analysis
 slug: mission-analysis
 cluster: jpp
 jppStep: 2
@@ -148,7 +148,7 @@ Source claims:
 
 ---
 
-## COA Development Creates Distinguishable Options
+## COA Development
 slug: coa-development
 cluster: jpp
 jppStep: 3
@@ -163,7 +163,7 @@ Source claims:
 
 ---
 
-## COA Analysis and Wargaming Stress the Plan Before the Enemy Does
+## Stress the Plan
 slug: coa-analysis-wargaming
 cluster: jpp
 jppStep: 4
@@ -178,7 +178,7 @@ Source claims:
 
 ---
 
-## COA Comparison Needs Criteria Before Scoring
+## COA Comparison Criteria
 slug: coa-comparison
 cluster: jpp
 jppStep: 5
@@ -192,7 +192,7 @@ Source claims:
 
 ---
 
-## COA Approval Keeps the Commander in the Decision Seat
+## COA Approval
 slug: coa-approval
 cluster: jpp
 jppStep: 6
@@ -207,7 +207,7 @@ Source claims:
 
 ---
 
-## Plan or Order Development Turns a COA into Direction
+## COA into Order
 slug: plan-order-development
 cluster: jpp
 jppStep: 7
@@ -221,10 +221,10 @@ Source claims:
 
 ---
 
-## Operational Design Frames the Problem Before Detailed Planning
+## Operational Design
 slug: operational-design
 cluster: design
-agenticOverlay: simulator-layer-safe-sim
+agenticOverlay: planning-multiverse
 tags: operational-design, problem-framing
 
 Summary: Operational design helps commanders understand the environment, define the problem, and develop an operational approach.
@@ -234,7 +234,7 @@ Source claims:
 
 ---
 
-## COG Analysis Decomposes Strength into Vulnerability
+## COG Analysis
 slug: center-of-gravity-analysis
 cluster: design
 tags: cog, cc, cr, cv
@@ -246,7 +246,7 @@ Source claims:
 
 ---
 
-## End State, Objective, Effect, and Task Are Different Altitudes
+## End State and Objective
 slug: end-state-objective-effect-task
 cluster: design
 tags: end-state, objective, effect, task
@@ -258,7 +258,7 @@ Source claims:
 
 ---
 
-## Lines of Operation Are Spatial; Lines of Effort Are Logical
+## Lines of Operation vs Lines of Effort
 slug: lines-operation-effort
 cluster: design
 tags: loo, loe, decisive-points
@@ -270,7 +270,7 @@ Source claims:
 
 ---
 
-## Thunderforge Targets Operational and Theater-Level Planning
+## Theater-Level Planning
 slug: thunderforge-agentic-planning
 cluster: agentic
 tags: thunderforge, agentic-planning, coa, architecture
@@ -283,7 +283,7 @@ Source claims:
 
 ---
 
-## The Agentic Deltas Concentrate in Steps 3 and 4
+## Steps 3 and 4
 slug: agentic-jpp-overview
 cluster: agentic
 tags: bridge, jpp, thunderforge, lens
@@ -296,7 +296,7 @@ Source claims:
 
 ---
 
-## Agentic Mission Analysis: Propose, Don't Decide
+## Agentic Mission Analysis
 slug: agentic-mission-analysis
 cluster: agentic
 jppStep: 2
@@ -311,7 +311,7 @@ Source claims:
 
 ---
 
-## Agentic COA Development: Parallel Options with Evidence
+## Agentic COA Development
 slug: agentic-coa-development
 cluster: agentic
 jppStep: 3
@@ -325,19 +325,20 @@ Source claims:
 
 ---
 
-## The Planning Multiverse Makes Wargaming a Search Space
+## Agentic Planning
 slug: planning-multiverse
 cluster: agentic
-tags: simulation, multiverse, wargaming, step-4
+tags: simulation, multiverse, wargaming, step-4, safe-sim
 
-Summary: Scale describes agentic planning as generating thousands or hundreds of thousands of scenario permutations.
+Summary: Scale describes agentic planning as multiverse exploration over simulator-backed scenario permutations.
 
 Source claims:
 - [scale] Agentic Planning systems can generate planning multiverses over many permutations. — Scale white paper pp. 29-32. Quote: "strategic, operational, and tactical planning "multiverses""
+- [scale] Scale describes natural-language UI, agent layer, and simulation layer, including SAFE-SiM as one tool. — Scale white paper pp. 30-31. Quote: "automate calls to simulators through a natural language interface"
 
 ---
 
-## Agentic COA Comparison: Lock the Criteria, Then Score
+## Agentic COA Comparison
 slug: agentic-coa-comparison
 cluster: agentic
 jppStep: 5
@@ -352,19 +353,7 @@ Source claims:
 
 ---
 
-## The Simulator Layer Is Where Agentic Planning Gets Empirical
-slug: simulator-layer-safe-sim
-cluster: agentic
-tags: simulators, safe-sim, orsas
-
-Summary: The white paper describes a three-layer stack: natural language UI, agent layer, and simulation layer.
-
-Source claims:
-- [scale] Scale describes natural-language UI, agent layer, and simulation layer, including SAFE-SiM as one tool. — Scale white paper pp. 30-31. Quote: "automate calls to simulators through a natural language interface"
-
----
-
-## Human-on-the-Loop Means Oversight, Judgment, and Risk Ownership
+## Human-on-the-Loop
 slug: human-on-the-loop
 cluster: governance
 tags: human-control, approval-gates, risk
@@ -376,7 +365,7 @@ Source claims:
 
 ---
 
-## Justifiable Confidence Comes from T&E, Not Trust Theater
+## Test and Evaluation
 slug: te-justifiable-confidence
 cluster: governance
 tags: evaluation, te, confidence
@@ -388,7 +377,7 @@ Source claims:
 
 ---
 
-## Mini-JPP Run: Practice the Loop Once
+## Mini-JPP Run
 slug: mini-jpp-capstone
 cluster: capstone
 tags: capstone, practice, fictional

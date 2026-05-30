@@ -4,6 +4,19 @@ import { TopBar } from "@/components/chrome/top-bar";
 import { TutorChat } from "@/components/tutor/tutor-chat";
 import { notes } from "@/lib/atlas-data";
 
+const hiddenLandingSlugs = new Set([
+  "ends-ways-means-risk",
+  "planning-initiation",
+  "mission-analysis",
+  "coa-development",
+  "coa-analysis-wargaming",
+  "coa-comparison",
+  "coa-approval",
+  "plan-order-development",
+]);
+
+const landingNotes = notes.filter((note) => !hiddenLandingSlugs.has(note.slug));
+
 export default function Home() {
   return (
     <>
@@ -33,7 +46,7 @@ export default function Home() {
               </div>
             </div>
             <div className="grid gap-3 md:grid-cols-2">
-              {notes.map((note) => (
+              {landingNotes.map((note) => (
                 <Link
                   key={note.slug}
                   href={`/n/${note.slug}`}
@@ -49,17 +62,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <footer className="border-t">
-          <div className="mx-auto max-w-7xl px-4 py-6">
-            <a
-              href="https://github.com/justin-graham/scale-jpp"
-              className="text-sm font-medium text-doctrine underline underline-offset-4"
-            >
-              GitHub repository
-            </a>
-          </div>
-        </footer>
       </main>
     </>
   );
